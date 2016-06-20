@@ -60,6 +60,44 @@ function SomeController() { }
 ```
 
 ## Components
+
+>In Angular, a Component is a special kind of directive that uses a simpler configuration which is suitable for a component-based application structure. [AngularJS doc for  more](https://docs.angularjs.org/guide/component) about **Components**
+
+Components are essentially templates with a controller. They are not Directives, nor should you replace Directives with Components, unless you are upgrading "template Directives" with controllers, which are best suited as a component.
+
+### Coponents architecture
+
+* Components only control their own View and Data.
+* Components should never modify any data or DOM that is out of their own scope.
+
+```javascript
+
+ (function(){
+
+  angular
+    .module('app')
+    .component('myComponnent', myComponnent);
+
+    // Component
+    function myComponnent() {
+
+      // Component Controller
+      function myComponnentCtrl() {};
+
+
+      return {
+        templateUrl: "path/to/template",
+        controller:myComponnentCtrl,
+        require:{},
+        bindings: {}
+      }
+    };
+
+  })();
+
+```
+
+
 ## Directives
 ## Controllers
 ## Services
